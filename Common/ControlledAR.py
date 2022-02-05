@@ -112,8 +112,8 @@ class ControlledAR():
 
     def PID_car(self, ref):
 
-        K_x = np.array([-10, -10, 10])
-        K_y = np.array([10, 10, 10])
+        K_x = np.array([-10., -10., 10.])
+        K_y = np.array([10., 10., 10.])
         K_z = np.array([1e3, 1e3])
 
         ob = self.env_real._get_obs()
