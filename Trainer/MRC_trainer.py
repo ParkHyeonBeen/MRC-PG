@@ -5,14 +5,14 @@ import matplotlib.pyplot as plt
 import numpy as np
 import torch
 from Common.Utils import *
-from Common.ControlledAR import ControlledAR
+from Common.MRC import ModerReferenceCompensator as mrc
 
 from gym import utils
 from gym.envs.mujoco import mujoco_env
 
 from gym.envs.mujoco.quad_rate import QuadRateEnv
 
-class Car_trainer():
+class MRC_trainer():
     def __init__(self, env, test_env, algorithm, max_action, min_action, args, args_test=None):
 
         if args_test is None:
@@ -74,7 +74,7 @@ class Car_trainer():
         self.env_sim = QuadRateEnv()
         self.env_real = QuadRateEnv()
 
-        self.car = ControlledAR(self.env_sim, self.env_real, self.args)
+        self.mrc = mrc(self.env_sim, self.env_real, self.args)
 
     def offline_train(self, d, local_step):
         if d:
@@ -259,7 +259,7 @@ class Car_trainer():
                     action_real = input_real
 
                 time_start = time.time()
-                next_obs, reward, done, _ = self.car.step(action_real)
+                next_obs, reward, done, _ = self.mrc.step(action_real)
                 # next_obs_real, reward_real, done_real, _ = self.env_real.step(action_real)
                 sim_time = time.time() - time_start
 

@@ -97,7 +97,7 @@ def main(args_test):
     if args_test.develop_mode is False:
         trainer = Basic_trainer(env, test_env, algorithm, max_action, min_action, args, args_test)
     else:
-        trainer = Car_trainer(env, test_env, algorithm, max_action, min_action, args, args_test)
+        trainer = MRC_trainer(env, test_env, algorithm, max_action, min_action, args, args_test)
     trainer.test()
 
 if __name__ == '__main__':

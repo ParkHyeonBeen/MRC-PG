@@ -3,7 +3,7 @@ from gym.envs.mujoco.quad_rate import *
 
 args = hyperparameters()
 
-class ControlledAR():
+class ModerReferenceCompensator():
     def __init__(self, env_sim, env_real, args_test):
 
         # setting
@@ -66,11 +66,9 @@ class ControlledAR():
         qvel_real = ob_real[7:]
         self.env_sim.set_state(qpos_real, qvel_real)
 
-        print("start")
         for i in range(self.frame_skip//skip_pid):
             if self.do_disturb is True and i == 0:
                 action, T_dist, R_dist = self.env_real.add_disturbance(action, showme=True)
-                print("mag_dist : ", T_dist, R_dist)
             self.env_real.do_simulation(action, skip_pid)
             self.env_sim.do_simulation(action_init, skip_pid)
 
@@ -78,9 +76,8 @@ class ControlledAR():
             next_state = self.state_converter(ob_ref)
             # next_state = self.make_nextstate_ref(ob_ref, action_init)
             action_ctrl = self.PID_car(next_state)
-            print(action_ctrl)
             action_next = action_init + action_ctrl
-            # action_next = np.clip(action_next, a_min=self.env_real.act_min, a_max=self.env_real.act_max)
+            action_next = np.clip(action_next, a_min=self.env_real.act_min, a_max=self.env_real.act_max)
             action = action_next
 
         ob = self.env_real._get_obs()
@@ -128,7 +125,7 @@ class ControlledAR():
         error_x = np.array([error[0],
                             error[4],
                             error[6]],
-                            dtype="object").T
+                           dtype="object").T
         error_y = np.array([error[1],
                             error[3],
                             error[7]],

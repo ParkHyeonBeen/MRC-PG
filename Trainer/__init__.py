@@ -1,4 +1,4 @@
 from Trainer.Basic_trainer import Basic_trainer
-from Trainer.Car_trainer import Car_trainer
+from Trainer.MRC_trainer import MRC_trainer
 
-__all__ = ['Basic_trainer', 'Car_trainer']
+__all__ = ['Basic_trainer', 'MRC_trainer']

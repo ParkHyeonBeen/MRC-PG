@@ -52,14 +52,14 @@
 		</body>
 	</worldbody>
     <actuator>
-		<motor ctrllimited="true" ctrlrange="0.0 700.0" gear="0  0. 1. 0. 0. 0." site="thrust"/>
-		<velocity ctrllimited="true" ctrlrange="-100 100" gear="0. 0. 0. 1. 0. 0." kv="0.1" site="rateX"/>
-		<velocity ctrllimited="true" ctrlrange="-100 100" gear="0. 0. 0. 0. 1. 0." kv="0.1" site="rateY"/>
-		<velocity ctrllimited="true" ctrlrange="-100 100" gear="0. 0. 0. 0. 0. 1." kv="0.1" site="rateZ"/>
+<!--		<motor ctrllimited="true" ctrlrange="0.0 700.0" gear="0  0. 1. 0. 0. 0." site="thrust"/>-->
+<!--		<velocity ctrllimited="true" ctrlrange="-100 100" gear="0. 0. 0. 1. 0. 0." kv="0.1" site="rateX"/>-->
+<!--		<velocity ctrllimited="true" ctrlrange="-100 100" gear="0. 0. 0. 0. 1. 0." kv="0.1" site="rateY"/>-->
+<!--		<velocity ctrllimited="true" ctrlrange="-100 100" gear="0. 0. 0. 0. 0. 1." kv="0.1" site="rateZ"/>-->
 
-<!--        <motor ctrllimited="true" ctrlrange="0.0 7.0" gear="0  0. 1. 0. 0. 0." site="thrust"/>-->
-<!--		<velocity ctrllimited="true" ctrlrange="-1 1" gear="0. 0. 0. 1. 0. 0." kv="0.1" site="rateX"/>-->
-<!--		<velocity ctrllimited="true" ctrlrange="-1 1" gear="0. 0. 0. 0. 1. 0." kv="0.1" site="rateY"/>-->
-<!--		<velocity ctrllimited="true" ctrlrange="-1 1" gear="0. 0. 0. 0. 0. 1." kv="0.1" site="rateZ"/>-->
+        <motor ctrllimited="true" ctrlrange="0.0 7.0" gear="0  0. 1. 0. 0. 0." site="thrust"/>
+		<velocity ctrllimited="true" ctrlrange="-1 1" gear="0. 0. 0. 1. 0. 0." kv="0.1" site="rateX"/>
+		<velocity ctrllimited="true" ctrlrange="-1 1" gear="0. 0. 0. 0. 1. 0." kv="0.1" site="rateY"/>
+		<velocity ctrllimited="true" ctrlrange="-1 1" gear="0. 0. 0. 0. 0. 1." kv="0.1" site="rateZ"/>
 	</actuator>
 </mujoco>
